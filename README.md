@@ -1,9 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Photo Gallery
+
+A modern, responsive photo gallery web application built with Next.js that allows users to search and browse high-quality images from Pixabay.
+
+## Features
+
+- **Image Search**: Search for images by keywords using the Pixabay API
+- **Responsive Design**: Built with Tailwind CSS and DaisyUI for a beautiful, mobile-friendly interface
+- **Image Lightbox**: View images in full resolution using the yet-another-react-lightbox component
+- **Loading States**: Smooth loading animations and suspense boundaries for better UX
+- **Optimized Performance**: Server-side rendering with Next.js App Router and caching for improved performance
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS with DaisyUI components
+- **API**: Pixabay API for image data
+- **Image Viewer**: yet-another-react-lightbox
+- **HTTP Client**: Axios
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+- Pixabay API key (free at [pixabay.com](https://pixabay.com/api/docs/))
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd Photo-Gallery
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Set up environment variables:
+Create a `.env.local` file in the root directory and add your Pixabay API key:
+```
+API_KEY_PIXABAY=your_pixabay_api_key_here
+```
+
+4. Run the development server:
 ```bash
 npm run dev
 # or
@@ -14,23 +61,53 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── globals.css      # Global styles
+│   ├── layout.tsx       # Root layout component
+│   ├── loading.tsx      # Global loading component
+│   └── page.tsx         # Home page component
+└── components/
+    ├── Footer.tsx       # Footer component
+    ├── GetImage.tsx     # Image fetching and display logic
+    ├── Header.tsx       # Header with navigation
+    ├── ImageSlide.tsx   # Image slideshow/lightbox
+    ├── Loading.tsx      # Loading spinner component
+    ├── Search.tsx       # Search input component
+    └── Tile.tsx         # Individual image tile component
+```
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+1. **Search Images**: Use the search bar to find images by keywords
+2. **Browse Results**: View image results in a responsive grid layout
+3. **View Full Size**: Click on any image to open it in the lightbox viewer
+4. **Navigate**: Use the lightbox controls to navigate between images
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Build and Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Build for Production
 
-## Deploy on Vercel
+```bash
+npm run build
+npm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Deploy on Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The easiest way to deploy this Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+
+Don't forget to add your `API_KEY_PIXABAY` environment variable in your deployment settings.
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
